@@ -19,7 +19,7 @@ class NewVisitorTest(unittest.TestCase):
 
         # 她注意到网页的标题和头部都包含了“To-Do”这个词
         self.assertIn('To-Do', self.browser.title)
-        self.fail('Finish the test!')
+        # self.fail('Finish the test!')
         # assert 'To-Do' in self.browser, "Browser title was " + self.browser.title
 
         # 应用邀请她输入一个待办事项
