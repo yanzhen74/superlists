@@ -1,0 +1,9 @@
+1486209799869	geckodriver	INFO	Listening on 127.0.0.1:12487
+1486209801867	mozprofile::profile	INFO	Using profile path C:\Users\yan\AppData\Local\Temp\rust_mozprofile.TKr87vpmiEcx
+1486209801879	geckodriver::marionette	INFO	Starting browser C:\Program Files\Mozilla Firefox\firefox.exe
+1486209801946	geckodriver::marionette	INFO	Connecting to Marionette on localhost:12493
+1486209802981	Marionette	INFO	Listening on port 12493
+1486209804474	Marionette	INFO	startBrowser 61e81436-98c0-4c2e-b9cb-d216ea6024cb
+1486209804493	Marionette	INFO	sendAsync 61e81436-98c0-4c2e-b9cb-d216ea6024cb
+1486209804863	Marionette	INFO	sendAsync 61e81436-98c0-4c2e-b9cb-d216ea6024cb
+1486209805320	Marionette	INFO	sendAsync 61e81436-98c0-4c2e-b9cb-d216ea6024cb
