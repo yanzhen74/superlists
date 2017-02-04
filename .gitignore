@@ -3,4 +3,7 @@
 "*.pyc" 
 ".idea/*"
 .idea
-".idea/""idea" 
+*.pyc
+db.sqlite3
+__pycache__
+"idea" 
