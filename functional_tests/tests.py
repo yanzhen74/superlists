@@ -2,6 +2,7 @@
 from django.test import LiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+import time
 
 
 class NewVisitorTest(LiveServerTestCase):
@@ -23,7 +24,6 @@ class NewVisitorTest(LiveServerTestCase):
         # 她去看了这个应用的首页
         self.browser.get(self.live_server_url)
 
-        import time
         time.sleep(1)
 
         # 她注意到网页的标题和头部都包含了“To-Do”这个词
@@ -108,5 +108,25 @@ class NewVisitorTest(LiveServerTestCase):
 
         # 她很满意，去睡觉了
 
+    def test_layout_and_styling(self):
+        # 伊迪斯访问首页
+        self.browser.get(self.live_server_url)
+        self.browser.set_window_size(1024, 512)
 
+        # 她看到输入框完美地居中显示
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=15
+        )
 
+        # 她新建了一个清单，看到输入框仍完美地居中显示
+        inputbox.send_keys('testing\n')
+        time.sleep(1)
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        self.assertAlmostEqual(
+            inputbox.location['x'] + inputbox.size['width'] / 2,
+            512,
+            delta=15
+        )
