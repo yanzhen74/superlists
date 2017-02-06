@@ -1,14 +1,13 @@
 # -*- coding: utf-8 -*-
+from django.test import LiveServerTestCase
 from selenium import webdriver
-import unittest
-
 from selenium.webdriver.common.keys import Keys
 
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
-        # self.browser.implicitly_wait(3)
+        self.browser.implicitly_wait(1)
 
     def tearDown(self):
         self.browser.quit()
@@ -22,7 +21,10 @@ class NewVisitorTest(unittest.TestCase):
 
         # 伊迪斯听说有一个很酷的在线待办事项应用
         # 她去看了这个应用的首页
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
+
+        import time
+        time.sleep(1)
 
         # 她注意到网页的标题和头部都包含了“To-Do”这个词
         self.assertIn('To-Do', self.browser.title)
@@ -46,7 +48,6 @@ class NewVisitorTest(unittest.TestCase):
         # 待办事项表格中显示了“1: Buy peacock feathers”
         inputbox.send_keys(Keys.ENTER)
 
-        import time
         time.sleep(1)
         self.check_for_row_in_list_table('1: Buy peacock feathers')
         # table = self.browser.find_element_by_id('id_list_table')
@@ -88,8 +89,5 @@ class NewVisitorTest(unittest.TestCase):
 
         # 她很满意，去睡觉了
 
-if __name__ == '__main__':
-    # unittest.main(warnings="ignore")
-    unittest.main()
 
 
