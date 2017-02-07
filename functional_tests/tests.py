@@ -1,11 +1,12 @@
 # -*- coding: utf-8 -*-
-from django.test import LiveServerTestCase
+# from django.test import LiveServerTestCase
+from django.contrib.staticfiles.testing import StaticLiveServerTestCase
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 
 
-class NewVisitorTest(LiveServerTestCase):
+class NewVisitorTest(StaticLiveServerTestCase):
     def setUp(self):
         self.browser = webdriver.Firefox()
         self.browser.implicitly_wait(1)
@@ -111,7 +112,6 @@ class NewVisitorTest(LiveServerTestCase):
     def test_layout_and_styling(self):
         # 伊迪斯访问首页
         self.browser.get(self.live_server_url)
-        time.sleep(10)
         self.browser.set_window_size(1024, 512)
 
         # 她看到输入框完美地居中显示
